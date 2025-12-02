@@ -17,5 +17,6 @@ public class QuestionService {
 
     public List<Question> getAllQuestions() {
         // Logic to get all questions from repository
+        return questionRepository.findAll();
     }
 }

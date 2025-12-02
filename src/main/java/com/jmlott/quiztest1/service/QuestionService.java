@@ -19,4 +19,9 @@ public class QuestionService {
         // Logic to get all questions from repository
         return questionRepository.findAll();
     }
+
+    //Passes question object from controller call to repository to save to database
+    public void addQuestion(Question question) {
+        
+    }
 }

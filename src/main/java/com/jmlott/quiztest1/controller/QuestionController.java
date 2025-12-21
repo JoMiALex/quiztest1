@@ -2,8 +2,6 @@ package com.jmlott.quiztest1.controller;
 import com.jmlott.quiztest1.Question;
 import com.jmlott.quiztest1.service.QuestionService;
 
-import jakarta.persistence.criteria.CriteriaBuilder.In;
-
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

@@ -6,10 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -42,5 +43,17 @@ public class QuestionController {
         questionService.addQuestion(question);
         return "Question added successfully";
     }
+
+    @GetMapping("/{id}")
+    public Optional<Question> getQuestionById(@PathVariable Integer id) {
+        return questionService.getQuestionById(id);
+    }
+
+    @GetMapping("category/{category}")
+    public List<Question> getQuestionsByCategory(@PathVariable String category) {
+        return questionService.getQuestionsByCategory(category);
+    }
+    
+    
 
 }

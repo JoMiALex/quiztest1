@@ -35,4 +35,9 @@ public class QuestionService {
         // TODO Auto-generated method stub
         return questionRepository.findByCategory(category);
     }
+
+    public List<Question> getQuestionByDifficulty(String difficulty) {
+        // TODO Auto-generated method stub
+        return questionRepository.findByDifficultyLevel(difficulty);
+    }
 }

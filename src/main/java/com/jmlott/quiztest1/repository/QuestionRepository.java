@@ -12,5 +12,6 @@ public interface QuestionRepository extends JpaRepository<Question, Integer> {
 
     // Custom query methods can be defined here
     List<Question> findByCategory(String category);
+    List<Question> findByDifficultyLevel(String difficultyLevel);
     
 }

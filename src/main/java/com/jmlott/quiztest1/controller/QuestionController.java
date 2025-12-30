@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 
@@ -53,6 +55,12 @@ public class QuestionController {
     public List<Question> getQuestionsByCategory(@PathVariable String category) {
         return questionService.getQuestionsByCategory(category);
     }
+
+    @GetMapping("difficulty/{difficulty}")
+    public List<Question> getMethodName(@PathVariable String difficulty) {
+        return questionService.getQuestionByDifficulty(difficulty);
+    }
+    
     
     //Left off at 33:00 in Tutorial
 

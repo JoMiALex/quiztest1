@@ -42,8 +42,7 @@ public class QuestionController {
     @PostMapping("/add")
     public String addQuestion(@RequestBody Question question) {
         // Call service to post new question object
-        questionService.addQuestion(question);
-        return "Question added successfully";
+        return questionService.addQuestion(question);
     }
 
     @GetMapping("/{id}")

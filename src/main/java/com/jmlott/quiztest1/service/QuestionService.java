@@ -22,8 +22,9 @@ public class QuestionService {
     }
 
     //Passes question object from controller call to repository to save to database
-    public void addQuestion(Question question) {
-        
+    public String addQuestion(Question question) {
+        questionRepository.save(question);
+        return "Question added successfully";
     }
 
     public Optional<Question> getQuestionById(Integer id) {

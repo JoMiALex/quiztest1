@@ -27,18 +27,36 @@ public class QuestionService {
         return "Question added successfully";
     }
 
+    public String updateQuestion(Integer id, Question question) {
+    Optional<Question> existingQuestion = questionRepository.findById(id);
+    
+    if (existingQuestion.isPresent()) {
+        Question q = existingQuestion.get();
+        // Update only the fields you want changed
+        if (question.getQuestionTitle() != null) q.setQuestionTitle(question.getQuestionTitle());
+        if (question.getOption1() != null) q.setOption1(question.getOption1());
+        if (question.getOption2() != null) q.setOption2(question.getOption2());
+        if (question.getOption3() != null) q.setOption3(question.getOption3());
+        if (question.getOption4() != null) q.setOption4(question.getOption4());
+        if (question.getCorrectAnswer() != null) q.setCorrectAnswer(question.getCorrectAnswer());
+        if (question.getCategory() != null) q.setCategory(question.getCategory());
+        if (question.getDifficultyLevel() != null) q.setDifficultyLevel(question.getDifficultyLevel());
+        
+        questionRepository.save(q);
+        return "Question with ID " + id + " updated successfully";
+    }
+    return "Question with ID " + id + " not found";
+    }
+
     public Optional<Question> getQuestionById(Integer id) {
-        // TODO Auto-generated method stub
         return questionRepository.findById(id);
     }
 
     public List<Question> getQuestionsByCategory(String category) {
-        // TODO Auto-generated method stub
         return questionRepository.findByCategory(category);
     }
 
     public List<Question> getQuestionByDifficulty(String difficulty) {
-        // TODO Auto-generated method stub
         return questionRepository.findByDifficultyLevel(difficulty);
     }
     

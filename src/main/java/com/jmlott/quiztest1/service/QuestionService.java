@@ -41,4 +41,10 @@ public class QuestionService {
         // TODO Auto-generated method stub
         return questionRepository.findByDifficultyLevel(difficulty);
     }
+    
+    public String deleteQuestionById(Integer id) {
+        questionRepository.deleteById(id);
+        return "Question with ID " + id + " deleted successfully.";
+    }
+
 }

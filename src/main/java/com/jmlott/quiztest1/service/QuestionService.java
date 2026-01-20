@@ -1,5 +1,6 @@
 package com.jmlott.quiztest1.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -11,6 +12,9 @@ import org.springframework.stereotype.Service;
 import com.jmlott.quiztest1.Question;
 import com.jmlott.quiztest1.repository.QuestionRepository;
 
+//Working on setting up RespnseEntity in service layer
+//Tutorial left off at 55:29
+
 @Service
 public class QuestionService {
 
@@ -19,7 +23,12 @@ public class QuestionService {
 
     public ResponseEntity<List<Question>> getAllQuestions() {
         // Logic to get all questions from repository
-        return new ResponseEntity<>(questionRepository.findAll(), HttpStatus.OK);
+        try {
+            return new ResponseEntity<>(questionRepository.findAll(), HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>(new ArrayList<>(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     //Passes question object from controller call to repository to save to database

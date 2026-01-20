@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.jmlott.quiztest1.Question;
@@ -11,14 +13,13 @@ import com.jmlott.quiztest1.repository.QuestionRepository;
 
 @Service
 public class QuestionService {
-    // Left off 17:05 in Tutorial
 
     @Autowired
     QuestionRepository questionRepository;
 
-    public List<Question> getAllQuestions() {
+    public ResponseEntity<List<Question>> getAllQuestions() {
         // Logic to get all questions from repository
-        return questionRepository.findAll();
+        return new ResponseEntity<>(questionRepository.findAll(), HttpStatus.OK);
     }
 
     //Passes question object from controller call to repository to save to database
